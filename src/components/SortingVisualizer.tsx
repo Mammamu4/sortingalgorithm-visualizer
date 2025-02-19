@@ -1,4 +1,5 @@
 import { useSortingAlgorithmContext } from "../context/Visulizer";
+import { LINE_MARGIN, LINE_WIDTH } from "../lib/utils";
 import Controls from "./Controls";
 
 const SortingVisualizer = () => {
@@ -20,7 +21,10 @@ const SortingVisualizer = () => {
           </div>
           <div className="flex w-full">
             <div className="flex-1 text-left">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta iste sunt, eaque quae quam praesentium aspernatur repellat assumenda aut magnam fuga, esse consectetur ipsum qui deserunt unde mollitia et natus?
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta
+              iste sunt, eaque quae quam praesentium aspernatur repellat
+              assumenda aut magnam fuga, esse consectetur ipsum qui deserunt
+              unde mollitia et natus?
             </div>
             <div className="flex flex-col items-end shrink-0">
               <p>{numberOfComparisons} : Comparisons</p>
@@ -32,8 +36,12 @@ const SortingVisualizer = () => {
               {arrayToSort.map((value, index) => (
                 <div
                   key={index}
-                  className="array-line relative w-2 mx-0.5 shadow-lg opacity-70 default-line-color"
-                  style={{ height: `${value}px` }}
+                  className="array-line relative shadow-lg opacity-70 default-line-color"
+                  style={{
+                    height: `${value}px`,
+                    width: `${LINE_WIDTH}px`,
+                    margin: `0 ${LINE_MARGIN}px`,
+                  }}
                 ></div>
               ))}
             </div>

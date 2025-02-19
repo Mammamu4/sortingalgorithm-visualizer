@@ -1,8 +1,6 @@
 import { AnimationArrayType, SortingAlgorithm } from "../lib/types";
 
 export class BubbleSort implements SortingAlgorithm {
-  name = "Bubble Sort";
-
   sort(array: number[], animations: AnimationArrayType): void {
     let lastIndex: number = array.length - 1;
     let swapped: boolean;

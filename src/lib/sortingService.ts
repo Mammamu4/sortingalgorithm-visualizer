@@ -20,7 +20,7 @@ class SortingService {
     runAnimation: (animations: AnimationArrayType) => void
   ): void {
     if (isSorting || array.length <= 1) return;
-    const algorithm = this.algorithms.get(selectedAlgorithm);
+    const algorithm: SortingAlgorithm | undefined = this.algorithms.get(selectedAlgorithm);
     if (!algorithm) {
       console.error("That algorithm is no yet implemented");
       return;

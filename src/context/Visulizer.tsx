@@ -3,6 +3,8 @@ import { AnimationArrayType, SortingAlgorithmType } from "../lib/types";
 import {
   DEFAULT_ANIMATION_SPEED,
   generateRandomNumberFromInterval,
+  LINE_MARGIN,
+  LINE_WIDTH,
 } from "../lib/utils";
 
 interface SortingAlgorithmContextType {
@@ -61,7 +63,7 @@ export const SortingAlgorithmProvider = ({
     if (!contentContainer) return;
     const contentContainerWidth = contentContainer.clientWidth;
     const tempArray: number[] = []; // using a temparray to avoid refreshing on every setArrayToSort state change
-    const numLines = contentContainerWidth / 12; // line is 8 px wide and 2px margin on x axis => every line is total 12px
+    const numLines = contentContainerWidth / (LINE_WIDTH + LINE_MARGIN * 2); // line is 8 px wide and 2px margin on x axis => every line is total 12px
     const containerHeight = window.innerHeight;
     const maxLineHeight = Math.max(containerHeight - 420, 100);
     for (let i = 0; i < numLines; i++) {
@@ -145,13 +147,13 @@ export const SortingAlgorithmProvider = ({
       });
 
       setTimeout(() => {
-        Array.from(arrayLines).forEach((line, index) => {
+        Array.from(arrayLines).forEach((line) => {
           line.classList.remove("complete-animation", "complete-line-color");
           line.classList.add("default-line-color");
         });
         setIsSorting(false);
         setIsAnimationComplete(true);
-      }, 2000);
+      }, 3000);
     }, finalTimeout);
   };
 
