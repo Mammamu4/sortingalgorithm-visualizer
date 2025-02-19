@@ -1,0 +1,25 @@
+.default-line-color {
+  background-color: aqua;
+}
+.changed-line-color {
+  background-color: red;
+}
+
+.complete-animation {
+  animation: CompleteAnimation 1s ease-in-out;
+}
+.complete-line-color {
+  background: lime;
+}
+
+@keyframes CompleteAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
