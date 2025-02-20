@@ -38,7 +38,7 @@ export const SortingAlgorithmProvider = ({
 }) => {
   const [arrayToSort, setArrayToSort] = useState<number[]>([]);
   const [selectedAlgorithm, setSelectedAlgorithm] =
-    useState<SortingAlgorithmType>("bubble");
+    useState<SortingAlgorithmType>("insertion");
   const [isSorting, setIsSorting] = useState<boolean>(false);
   const [animationSpeed, setAnimationSpeed] = useState<number>(
     DEFAULT_ANIMATION_SPEED
@@ -143,7 +143,7 @@ export const SortingAlgorithmProvider = ({
         setTimeout(() => {
           line.classList.add("complete-animation", "complete-line-color");
           line.classList.remove("default-line-color");
-        }, 10 * index);
+        }, 1 * index);
       });
 
       setTimeout(() => {

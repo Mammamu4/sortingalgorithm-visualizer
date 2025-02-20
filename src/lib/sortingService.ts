@@ -1,4 +1,5 @@
 import { BubbleSort } from "../algorithms/bubbleSort";
+import { InsertionSort } from "../algorithms/insertionSort";
 import { SelectionSort } from "../algorithms/selectionSort";
 import {
   AnimationArrayType,
@@ -12,6 +13,7 @@ class SortingService {
   constructor() {
     this.algorithms.set("bubble", new BubbleSort());
     this.algorithms.set("selection", new SelectionSort());
+    this.algorithms.set("insertion", new InsertionSort());
   }
   generateAnimationArray(
     selectedAlgorithm: SortingAlgorithmType,
@@ -20,7 +22,8 @@ class SortingService {
     runAnimation: (animations: AnimationArrayType) => void
   ): void {
     if (isSorting || array.length <= 1) return;
-    const algorithm: SortingAlgorithm | undefined = this.algorithms.get(selectedAlgorithm);
+    const algorithm: SortingAlgorithm | undefined =
+      this.algorithms.get(selectedAlgorithm);
     if (!algorithm) {
       console.error("That algorithm is no yet implemented");
       return;

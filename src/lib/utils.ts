@@ -1,5 +1,5 @@
 export const MIN_ANIMATION_SPEED = 100;
-export const MAX_ANIMATION_SPEED = 400;
+export const MAX_ANIMATION_SPEED = 1000;
 export const DEFAULT_ANIMATION_SPEED = 250;
 
 // in pixels
