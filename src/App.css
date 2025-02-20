@@ -11,6 +11,9 @@
 .complete-line-color {
   background: lime;
 }
+.special-line-color {
+  background: lime
+}
 
 @keyframes CompleteAnimation {
   0% {

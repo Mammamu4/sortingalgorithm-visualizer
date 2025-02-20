@@ -1,5 +1,6 @@
 import { BubbleSort } from "../algorithms/bubbleSort";
 import { InsertionSort } from "../algorithms/insertionSort";
+import { MergeSort } from "../algorithms/mergeSort";
 import { SelectionSort } from "../algorithms/selectionSort";
 import {
   AnimationArrayType,
@@ -14,6 +15,7 @@ class SortingService {
     this.algorithms.set("bubble", new BubbleSort());
     this.algorithms.set("selection", new SelectionSort());
     this.algorithms.set("insertion", new InsertionSort());
+    this.algorithms.set("merge", new MergeSort());
   }
   generateAnimationArray(
     selectedAlgorithm: SortingAlgorithmType,

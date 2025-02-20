@@ -63,7 +63,8 @@ export const SortingAlgorithmProvider = ({
     if (!contentContainer) return;
     const contentContainerWidth = contentContainer.clientWidth;
     const tempArray: number[] = []; // using a temparray to avoid refreshing on every setArrayToSort state change
-    const numLines = contentContainerWidth / (LINE_WIDTH + LINE_MARGIN * 2); // line is 8 px wide and 2px margin on x axis => every line is total 12px
+    const numLines = contentContainerWidth / (LINE_WIDTH + LINE_MARGIN * 2); // line is 8 px wide and 2px margin on x axis => every line is total 12px`
+    console.log(numLines);
     const containerHeight = window.innerHeight;
     const maxLineHeight = Math.max(containerHeight - 420, 100);
     for (let i = 0; i < numLines; i++) {
@@ -85,7 +86,8 @@ export const SortingAlgorithmProvider = ({
         "array-line"
       ) as HTMLCollectionOf<HTMLElement>;
       for (let i = 0; i < arrayLines.length; i++) {
-        arrayLines[i].classList.remove("changed-line-color");
+        arrayLines[i].classList.remove("complete-line-color");
+        arrayLines[i].classList.remove("complete-animation");
         arrayLines[i].classList.add("default-line-color");
       }
     }, 0);
@@ -125,6 +127,12 @@ export const SortingAlgorithmProvider = ({
         setNumberOfArrayAcceses(arrayAcceses);
         if (!isSwap) {
           updateClassList(values, "changed-line-color", "default-line-color");
+          if (values.length > 2) {
+            document
+              .querySelector(".special-line-color")
+              ?.classList.remove("special-line-color");
+            arrayLines[values[2]].classList.add("special-line-color");
+          }
           setTimeout(() => {
             updateClassList(values, "default-line-color", "changed-line-color");
           }, inverseSpeed);
@@ -143,7 +151,7 @@ export const SortingAlgorithmProvider = ({
         setTimeout(() => {
           line.classList.add("complete-animation", "complete-line-color");
           line.classList.remove("default-line-color");
-        }, 1 * index);
+        }, 10 * index);
       });
 
       setTimeout(() => {
@@ -153,7 +161,7 @@ export const SortingAlgorithmProvider = ({
         });
         setIsSorting(false);
         setIsAnimationComplete(true);
-      }, 3000);
+      }, 10 * arrayLines.length + 1000);
     }, finalTimeout);
   };
 
