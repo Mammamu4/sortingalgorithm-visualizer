@@ -1,0 +1,37 @@
+[
+  {
+    "name": "bubble",
+    "description": "A simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order.",
+    "worst": "quadratic",
+    "avrage": "quadratic",
+    "best": "quadratic"
+  },
+  {
+    "name": "insertion",
+    "description": "A sorting algorithm that builds the final sorted array one item at a time, inserting each element into its correct position.",
+    "worst": "quadratic",
+    "avrage": "quadratic",
+    "best": "linear"
+  },
+  {
+    "name": "selection",
+    "description": "A sorting algorithm that repeatedly selects the smallest element from the unsorted part and moves it to the sorted part.",
+    "worst": "quadratic",
+    "avrage": "quadratic",
+    "best": "quadratic"
+  },
+  {
+    "name": "quick",
+    "description": "A divide-and-conquer sorting algorithm that partitions the array and recursively sorts the partitions.",
+    "worst": "quadratic",
+    "avrage": "linearithmic",
+    "best": "linearithmic"
+  },
+  {
+    "name": "merge",
+    "description": "A divide-and-conquer sorting algorithm that splits the array into halves, sorts them, and merges them back together.",
+    "worst": "linearithmic",
+    "avrage": "linearithmic",
+    "best": "linearithmic"
+  }
+]

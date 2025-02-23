@@ -29,9 +29,6 @@ const Controls = () => {
       runAnimation
     );
   };
-  useEffect(() => {
-    console.log(selectedAlgorithm);
-  }, [selectedAlgorithm])
 
   return (
     <div className="flex gap-4 items-center justify-evenly">

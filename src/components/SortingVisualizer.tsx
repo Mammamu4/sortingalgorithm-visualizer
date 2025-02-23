@@ -1,10 +1,38 @@
 import { useSortingAlgorithmContext } from "../context/Visulizer";
-import { LINE_MARGIN, LINE_WIDTH } from "../lib/utils";
+import { LINE_MARGIN } from "../lib/utils";
 import Controls from "./Controls";
+import Counter from "./Counter";
+import timeComplexityData from "../lib/sortingAlgorithms.json";
+import { SortingAlgorithmInformation } from "../lib/types";
+import TimeComplexity from "./TimeComplexity";
+import { useEffect } from "react";
+
+const getSelectedAlgorithm = (
+  algorithms: SortingAlgorithmInformation[],
+  selectedAlgorithm: string
+): SortingAlgorithmInformation | undefined => {
+  return algorithms.find(
+    (algo) => algo.name.toLowerCase() === selectedAlgorithm.toLowerCase()
+  );
+};
 
 const SortingVisualizer = () => {
-  const { arrayToSort, numberOfArrayAcceses, numberOfComparisons } =
-    useSortingAlgorithmContext();
+  const {
+    arrayToSort,
+    numberOfArrayAcceses,
+    numberOfComparisons,
+    lineWidth,
+    setLineWidth,
+    resetArrayAndAnimation,
+    selectedAlgorithm,
+  } = useSortingAlgorithmContext();
+
+  useEffect(resetArrayAndAnimation, [lineWidth])
+  const sortingAlgorithmInformation: SortingAlgorithmInformation[] =
+    timeComplexityData;
+
+  const selectedAlgorithmInformation: SortingAlgorithmInformation =
+    getSelectedAlgorithm(sortingAlgorithmInformation, selectedAlgorithm);
 
   return (
     <div className="absolute top-0 h-screen w-screen bg-[#151515]">
@@ -19,16 +47,41 @@ const SortingVisualizer = () => {
             </h1>
             <Controls />
           </div>
-          <div className="flex w-full">
-            <div className="flex-1 text-left">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta
-              iste sunt, eaque quae quam praesentium aspernatur repellat
-              assumenda aut magnam fuga, esse consectetur ipsum qui deserunt
-              unde mollitia et natus?
+          <div className="flex w-full gap-20">
+            <div className="flex justify-between flex-1 text-left">
+              <div>
+                <h1 className="font-bold text-xl">{selectedAlgorithm}</h1>
+                <p>{selectedAlgorithmInformation.description}</p>
+              </div>
             </div>
-            <div className="flex flex-col items-end shrink-0">
-              <p>{numberOfComparisons} : Comparisons</p>
-              <p>{numberOfArrayAcceses} : Array Accesses</p>
+            <div className="flex flex-col font-light items-end">
+              <h1 className="font-bold text-xl">Time Complexity</h1>
+              <div className="flex gap-2">
+                <h1>Worst case: </h1>
+                <TimeComplexity id={selectedAlgorithmInformation.worst} />
+              </div>
+              <div className="flex gap-2">
+                <h1>Avrage case:</h1>
+                <TimeComplexity id={selectedAlgorithmInformation.avrage} />
+              </div>
+              <div className="flex gap-2">
+                <h1>Best case:</h1>
+                <TimeComplexity id={selectedAlgorithmInformation.best} />
+              </div>
+            </div>
+            <div className="flex flex-col items-end w-44">
+              <p className="">{numberOfComparisons} : Comparisons</p>
+              <p className="">{numberOfArrayAcceses} : Array Accesses</p>
+              <Counter
+                minValue={1}
+                defaultValue={4}
+                maxValue={20}
+                stepValue={1}
+                label="Arraysize"
+                onChange={(count) => {
+                  setLineWidth(count);
+                }}
+              />
             </div>
           </div>
           <div className="relative h-[calc(100vh-66px)] w-full">
@@ -39,7 +92,7 @@ const SortingVisualizer = () => {
                   className="array-line relative shadow-lg opacity-70 default-line-color"
                   style={{
                     height: `${value}px`,
-                    width: `${LINE_WIDTH}px`,
+                    width: `${lineWidth}px`,
                     margin: `0 ${LINE_MARGIN}px`,
                   }}
                 ></div>

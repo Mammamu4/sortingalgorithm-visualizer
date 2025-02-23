@@ -4,7 +4,6 @@
 .changed-line-color {
   background-color: red;
 }
-
 .complete-animation {
   animation: CompleteAnimation 1s ease-in-out;
 }

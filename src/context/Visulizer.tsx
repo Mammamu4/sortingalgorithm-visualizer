@@ -4,7 +4,6 @@ import {
   DEFAULT_ANIMATION_SPEED,
   generateRandomNumberFromInterval,
   LINE_MARGIN,
-  LINE_WIDTH,
 } from "../lib/utils";
 
 interface SortingAlgorithmContextType {
@@ -22,6 +21,8 @@ interface SortingAlgorithmContextType {
   setNumberOfComparisons: (numberOfComparisons: number) => void;
   numberOfArrayAcceses: number;
   setNumberOfArrayAcceses: (numberOfArrayAcceses: number) => void;
+  lineWidth: number;
+  setLineWidth: (lineWidth: number) => void;
   resetArrayAndAnimation: () => void;
   runAnimation: (animations: AnimationArrayType) => void;
   requiresReset: boolean;
@@ -47,6 +48,7 @@ export const SortingAlgorithmProvider = ({
     useState<boolean>(false);
   const [numberOfComparisons, setNumberOfComparisons] = useState<number>(0);
   const [numberOfArrayAcceses, setNumberOfArrayAcceses] = useState<number>(0);
+  const [lineWidth, setLineWidth] = useState<number>(4);
 
   const requiresReset: boolean = isAnimationComplete || isSorting;
 
@@ -63,7 +65,7 @@ export const SortingAlgorithmProvider = ({
     if (!contentContainer) return;
     const contentContainerWidth = contentContainer.clientWidth;
     const tempArray: number[] = []; // using a temparray to avoid refreshing on every setArrayToSort state change
-    const numLines = contentContainerWidth / (LINE_WIDTH + LINE_MARGIN * 2); // line is 8 px wide and 2px margin on x axis => every line is total 12px`
+    const numLines = contentContainerWidth / (lineWidth + LINE_MARGIN * 2);
     console.log(numLines);
     const containerHeight = window.innerHeight;
     const maxLineHeight = Math.max(containerHeight - 420, 100);
@@ -88,6 +90,8 @@ export const SortingAlgorithmProvider = ({
       for (let i = 0; i < arrayLines.length; i++) {
         arrayLines[i].classList.remove("complete-line-color");
         arrayLines[i].classList.remove("complete-animation");
+        arrayLines[i].classList.remove("changed-line-color");
+        arrayLines[i].classList.remove("special-line-color");
         arrayLines[i].classList.add("default-line-color");
       }
     }, 0);
@@ -180,6 +184,8 @@ export const SortingAlgorithmProvider = ({
     numberOfArrayAcceses,
     setNumberOfArrayAcceses,
     setIsAnimationComplete,
+    lineWidth,
+    setLineWidth,
     resetArrayAndAnimation,
     runAnimation,
     requiresReset,
