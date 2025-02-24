@@ -2,7 +2,6 @@ import { useSortingAlgorithmContext } from "../context/Visulizer";
 import { SortingAlgorithmType, sortingAlgorithmTypes } from "../lib/types";
 import { MAX_ANIMATION_SPEED, MIN_ANIMATION_SPEED } from "../lib/utils";
 import { generateAnimationArray } from "../lib/sortingService";
-import { useEffect } from "react";
 
 const Controls = () => {
   const {
