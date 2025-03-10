@@ -4,14 +4,14 @@ export type SortingAlgorithmType =
   | "insertion"
   | "quick"
   | "merge"
-  | "bucket";
+  | "radix";
 export const sortingAlgorithmTypes: SortingAlgorithmType[] = [
   "bubble",
   "selection",
   "insertion",
   "quick",
   "merge",
-  "bucket",
+  "radix",
 ];
 export type AnimationArrayType = [number[], boolean, number, number][];
 

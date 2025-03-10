@@ -1,7 +1,7 @@
 [
   {
     "name": "bubble",
-    "description": "A simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order.",
+    "description": "A simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order.°",
     "worst": "quadratic",
     "avrage": "quadratic",
     "best": "quadratic"
@@ -33,5 +33,13 @@
     "worst": "linearithmic",
     "avrage": "linearithmic",
     "best": "linearithmic"
+  },
+  {
+    "name": "radix",
+    "description": "A non-comparative sorting algorithm that sorts integers by grouping them by individual digits.",
+    "worst": "linear",
+    "avrage": "linear",
+    "best": "linear"
   }
+
 ]

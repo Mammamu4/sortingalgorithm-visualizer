@@ -39,7 +39,7 @@ const SortingVisualizer = () => {
       <div className="flex h-full justify-center">
         <div
           id="content-container"
-          className="flex w-full w-full flex-col lg:px-0 px-4"
+          className="flex w-full flex-col lg:px-0 px-4"
         >
           <div className="h-[66px] relative flex items-center justify-between gap-2 w-full">
             <h1 className="text-3xl font-light">

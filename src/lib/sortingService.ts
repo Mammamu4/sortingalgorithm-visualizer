@@ -3,6 +3,7 @@ import { InsertionSort } from "../algorithms/insertionSort";
 import { MergeSort } from "../algorithms/mergeSort";
 import { QuickSort } from "../algorithms/quickSort";
 import { SelectionSort } from "../algorithms/selectionSort";
+import { RadixSort } from "../algorithms/radixSort";
 import {
   AnimationArrayType,
   SortingAlgorithm,
@@ -18,6 +19,7 @@ class SortingService {
     this.algorithms.set("insertion", new InsertionSort());
     this.algorithms.set("quick", new QuickSort());
     this.algorithms.set("merge", new MergeSort());
+    this.algorithms.set("radix", new RadixSort());
 
   }
   generateAnimationArray(
