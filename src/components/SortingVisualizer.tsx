@@ -29,10 +29,14 @@ const SortingVisualizer = () => {
 
   useEffect(resetArrayAndAnimation, [lineWidth]);
   const sortingAlgorithmInformation: SortingAlgorithmInformation[] =
-    timeComplexityData;
+    timeComplexityData as SortingAlgorithmInformation[];
 
-  const selectedAlgorithmInformation: SortingAlgorithmInformation =
+  const selectedAlgorithmInformation: SortingAlgorithmInformation | undefined =
     getSelectedAlgorithm(sortingAlgorithmInformation, selectedAlgorithm);
+
+  if (!selectedAlgorithmInformation) {
+    return <div>Error: Selected algorithm not found</div>;
+  }
 
   return (
     <div className="absolute top-0 h-screen w-screen bg-[#151515]">

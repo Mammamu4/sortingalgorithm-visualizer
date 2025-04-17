@@ -1,45 +1,44 @@
 [
   {
     "name": "bubble",
-    "description": "A simple sorting algorithm that repeatedly swaps adjacent elements if they are in the wrong order.°",
+    "description": "A straightforward sorting algorithm that repeatedly compares and swaps adjacent elements if they are out of order, gradually moving larger values to the end.",
     "worst": "quadratic",
     "avrage": "quadratic",
     "best": "quadratic"
   },
   {
     "name": "insertion",
-    "description": "A sorting algorithm that builds the final sorted array one item at a time, inserting each element into its correct position.",
+    "description": "An efficient sorting algorithm for small datasets that builds a sorted array one element at a time by inserting each new value into its correct position.",
     "worst": "quadratic",
     "avrage": "quadratic",
     "best": "linear"
   },
   {
     "name": "selection",
-    "description": "A sorting algorithm that repeatedly selects the smallest element from the unsorted part and moves it to the sorted part.",
+    "description": "A sorting algorithm that repeatedly finds the smallest remaining element in the unsorted portion and swaps it with the first unsorted position.",
     "worst": "quadratic",
     "avrage": "quadratic",
     "best": "quadratic"
   },
   {
     "name": "quick",
-    "description": "A divide-and-conquer sorting algorithm that partitions the array and recursively sorts the partitions.",
+    "description": "A fast divide-and-conquer sorting algorithm that selects a pivot, partitions the array into smaller and larger elements, and recursively sorts each part.",
     "worst": "quadratic",
     "avrage": "linearithmic",
     "best": "linearithmic"
   },
   {
     "name": "merge",
-    "description": "A divide-and-conquer sorting algorithm that splits the array into halves, sorts them, and merges them back together.",
+    "description": "A stable, divide-and-conquer sorting algorithm that recursively splits an array into smaller subarrays, sorts them, and merges the sorted parts back together.",
     "worst": "linearithmic",
     "avrage": "linearithmic",
     "best": "linearithmic"
   },
   {
     "name": "radix",
-    "description": "A non-comparative sorting algorithm that sorts integers by grouping them by individual digits.",
+    "description": "A non-comparative sorting algorithm that processes numbers digit by digit, grouping them based on their individual place values.",
     "worst": "linear",
     "avrage": "linear",
     "best": "linear"
   }
-
 ]

@@ -67,7 +67,7 @@ const Controls = () => {
       <button onClick={handlePlay} className="bg-white p-1 rounded-3xl">
         {requiresReset ? (
           <img
-            src="/restart.svg"
+            src="/sorting/restart.svg"
             alt=""
             className="hover:scale-110 active:scale-90 transition-all duration-100"
             width={48}
@@ -75,7 +75,7 @@ const Controls = () => {
           />
         ) : (
           <img
-            src="/play.svg"
+            src="/sorting/play.svg"
             alt=""
             className="hover:scale-110 active:scale-90 transition-all duration-100"
             width={48}

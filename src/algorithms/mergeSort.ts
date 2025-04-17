@@ -43,7 +43,7 @@ export class MergeSort implements SortingAlgorithm {
 
     while (i < leftArr.length && j < rightArr.length) {
       this.comparisons++;
-      animations.push([[left + i, middle + 1 + j, middle], false, this.comparisons, this.arrayAccesses]);
+      animations.push([[left + i, middle + 1 + j], false, this.comparisons, this.arrayAccesses]);
       this.arrayAccesses += 4;
       if (leftArr[i] <= rightArr[j]) {
         animations.push([[k, leftArr[i]], true, this.comparisons, this.arrayAccesses])
